@@ -222,7 +222,7 @@ class TSocket extends TTransport {
     $pre = null;
     while (TRUE) {
       $buf = @fread($this->handle_, $len);
-      if ($buf === FALSE || $buf === '') {
+      if ($buf === FALSE) {
         $md = stream_get_meta_data($this->handle_);
         if ($md['timed_out']) {
           throw new TException('TSocket: timed out reading '.$len.' bytes from '.
@@ -258,9 +258,9 @@ class TSocket extends TTransport {
       $this->sendTimeoutSet_ = FALSE;
     }
     $data = @fread($this->handle_, $len);
-    if ($data === FALSE || $data === '') {
+    if ($data === FALSE) {
       $md = stream_get_meta_data($this->handle_);
-      if ($md['timed_out']) {
+      if (true === $md['timed_out'] && false === $md['blocked']) {
         throw new TException('TSocket: timed out reading '.$len.' bytes from '.
                              $this->host_.':'.$this->port_);
       } else {
