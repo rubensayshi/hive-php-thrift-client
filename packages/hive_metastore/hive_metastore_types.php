@@ -9,7 +9,7 @@ include_once $GLOBALS['THRIFT_ROOT'].'/Thrift.php';
 include_once $GLOBALS['THRIFT_ROOT'].'/packages/fb303/fb303_types.php';
 
 $GLOBALS['E_HiveObjectType'] = array(
-  'GLOBAL' => 1,
+  'GLOBALS' => 1,
   'DATABASE' => 2,
   'TABLE' => 3,
   'PARTITION' => 4,
@@ -17,13 +17,13 @@ $GLOBALS['E_HiveObjectType'] = array(
 );
 
 final class HiveObjectType {
-  const GLOBAL = 1;
+  const GLOBALS = 1;
   const DATABASE = 2;
   const TABLE = 3;
   const PARTITION = 4;
   const COLUMN = 5;
   static public $__names = array(
-    1 => 'GLOBAL',
+    1 => 'GLOBALS',
     2 => 'DATABASE',
     3 => 'TABLE',
     4 => 'PARTITION',
